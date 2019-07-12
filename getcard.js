@@ -6,7 +6,7 @@ const dotenv =  require('dotenv');
 dotenv.config();
 const publickey = process.env.publickey;
 const fetch = require("node-fetch");
-console.log(publickey)
+//console.log(publickey)
 module.exports ={
 	getinfo: (secret,data)=>{
 		let secrets = secret;
