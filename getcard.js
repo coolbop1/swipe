@@ -10,10 +10,12 @@ console.log(publickey)
 module.exports ={
 	getinfo: (secret,data)=>{
 		let secrets = secret;
-		//data.PBFPubKey = publickey;
+		data.PBFPubKey = publickey;
 		data.amount = 100;
 		data.suggested_auth = "PIN"; 
-		//data.charge_last_auth = true;
+		data.country = "NG";
+		data.txRef = "MC-" + Date.now();
+		data.currency = "NGN";
 		let datas = data;
 		return new Promise((resolve,reject)=>{
 			getKey(secrets,datas);
@@ -36,7 +38,7 @@ function encrypt(key, text)
     cipher.update(forge.util.createBuffer(text, 'utf-8'));
     cipher.finish();
     var encrypted = cipher.output;
-    //console.log( forge.util.encode64(encrypted.getBytes()) );
+  
     fetchinfo(forge.util.encode64(encrypted.getBytes()))
 }
 function fetchinfo(datakey){
@@ -44,7 +46,8 @@ function fetchinfo(datakey){
 		//fetch("http://staging1flutterwave.co:8080/pwc/rest/card/mvva/cardenquiry",{
 		method:"POST",
 		headers:{"Content-Type":"application/json; charset=UTF-8"},
-		body:JSON.stringify({PBFPubKey: publickey, client: datakey, alg: "3DES-24"
+		body:JSON.stringify({PBFPubKey: publickey, client: datakey, alg: "3DES-24",
+		
 		})
 	})
 	.then((res)=>res.json())
