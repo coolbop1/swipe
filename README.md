@@ -19,7 +19,7 @@ For example you may get the following error
 ```
 "md5" not found
 ```
-All  you have to do is enter in the terminal the following to install the missing package "express"
+All  you have to do is enter in the terminal the following to install the missing package "md5"
 ```
 npm i md5 --save
 ```
