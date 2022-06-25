@@ -11,7 +11,7 @@
     "inquirer": "^6.5.0",
     "md5": "^2.2.1",
     "mongoose": "^5.7.5",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "node-forge": "^0.8.5",
     "utf8": "^3.0.0"
   },
